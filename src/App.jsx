@@ -1,11 +1,14 @@
-import Login from './pages/login'
-import PageContentProvier from './hooks/page-content'
+
+import React from 'react'
+import { getPageComponent } from './hooks/page'
 
 function App() {
+  const Component = getPageComponent()
+
   return(
-    <PageContentProvier>
-      <Login />
-    </PageContentProvier>
+    <div data-theme="dark">
+      {Component}
+    </div>
   )
 }
 

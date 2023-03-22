@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { Provider } from'react-redux'
 import {
   persistStore,
@@ -13,9 +13,13 @@ import {
 import { PersistGate } from'redux-persist/integration/react'
 import storage from 'redux-persist/lib/storage'
 
-export function PageContentProvier({ children }) {  
-  const persistConfig = { key: 'page-content', storage, version: 1 }
-  const persistedReducer = persistReducer(persistConfig, authReducer)
+import authReducer from '../hooks/auth'
+import pageReducer from '../hooks/page'
+
+function AuthProvider({ children }) {
+  const persistConfig = { key: '@app-store', storage, version: 1 }
+  const persistedReducer = persistReducer(persistConfig, combineReducers({ authReducer, pageReducer}))
+
   const store = configureStore({
     reducer: persistedReducer,
     middleware: (gdm) => gdm({
@@ -27,7 +31,11 @@ export function PageContentProvier({ children }) {
 
   return(
     <Provider store={store}>
-      {children}
+      <PersistGate loading={false} persistor={persistStore(store)}>
+        {children}
+      </PersistGate>
     </Provider>
   )
 }
+
+export default AuthProvider
