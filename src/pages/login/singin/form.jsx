@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 
-import { useAuth } from '../../hooks/auth'
-import { usePageContent } from '../../hooks/page'
+import { useAuth } from '../../../hooks/auth'
+import { usePageContent } from '../../../hooks/page'
 
-export default function SignIn() {
+export default function FormSignIn() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm()
   const { SignIn } = useAuth()
   const { setPageContent } = usePageContent()

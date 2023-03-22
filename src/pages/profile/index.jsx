@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { usePageContent } from "../../hooks/page"
 
-export function Profile() {
+export default function Profile() {
   const { setPageContent } = usePageContent()
   const dispatch = useDispatch()
 
@@ -10,7 +10,7 @@ export function Profile() {
       <h1>Profile</h1>
       <button
         className="btn btn-secondary"
-        onClick={() => dispatch(setPageContent({ pageContent: 'product'}))}
+        onClick={() => dispatch(setPageContent({ pageContent: 'product' }))}
       >Product</button>
     </>
   )

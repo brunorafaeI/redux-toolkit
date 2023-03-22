@@ -1,6 +1,6 @@
-import SignIn from "./signin"
+import SignIn from "./singin"
 
-export function Login() {
+export default function Login() {
 
   return(
     <div className='h-screen flex flex-col justify-start items-center'>

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { usePageContent } from "../../hooks/page"
 
-export function Product() {
+export default function Product() {
   const { setPageContent } = usePageContent()
   const dispatch = useDispatch()
 

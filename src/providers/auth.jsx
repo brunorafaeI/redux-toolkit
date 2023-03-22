@@ -18,7 +18,7 @@ import pageReducer from '../hooks/page'
 
 function AuthProvider({ children }) {
   const persistConfig = { key: '@app-store', storage, version: 1 }
-  const persistedReducer = persistReducer(persistConfig, combineReducers({ authReducer, pageReducer}))
+  const persistedReducer = persistReducer(persistConfig, combineReducers({ authReducer, pageReducer }))
 
   const store = configureStore({
     reducer: persistedReducer,

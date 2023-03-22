@@ -1,15 +1,9 @@
+import PageContent from './pages'
 
-import React from 'react'
-import { getPageComponent } from './hooks/page'
-
-function App() {
-  const Component = getPageComponent()
-
+export default function App() {
   return(
     <div data-theme="dark">
-      {Component}
+      <PageContent />
     </div>
   )
 }
-
-export default App
