@@ -1,13 +1,15 @@
 
-import React from 'react'
-import { getPageComponent } from './hooks/page'
+import { useSelector } from 'react-redux'
+import { Setup } from './components/Setup'
 
 function App() {
-  const Component = getPageComponent()
+  const { pageContent } = useSelector(state => state.pageReducer)
 
   return(
     <div data-theme="dark">
-      {Component}
+      <Setup pageContent={pageContent}>
+        <div>Loading...</div>
+      </Setup>
     </div>
   )
 }
