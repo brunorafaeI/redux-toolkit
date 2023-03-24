@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { usePageContent } from "../../hooks/page"
 
-export function Dashboard() {
+export default function Dashboard() {
   const { setPageContent } = usePageContent()
   const dispatch = useDispatch()
 

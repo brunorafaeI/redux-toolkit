@@ -1,16 +1,14 @@
 
 import { useSelector } from 'react-redux'
-import Loading from './components/Loading'
-import { Setup } from './components/Setup'
+import { DynamicLazyLoader } from './components/DynamicLazyLoader'
+import Progress from './pages/progress'
 
 function App() {
   const { pageContent } = useSelector(state => state.pageReducer)
 
   return(
     <div data-theme="dark">
-      <Setup pageContent={pageContent}>
-        <Loading />
-      </Setup>
+      <DynamicLazyLoader pageContent={pageContent} fallback={<Progress />} />
     </div>
   )
 }

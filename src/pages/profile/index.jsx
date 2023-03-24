@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux"
 import { usePageContent } from "../../hooks/page"
 
-export function Profile() {
+export default function Profile() {
   const { setPageContent } = usePageContent()
   const dispatch = useDispatch()
 
