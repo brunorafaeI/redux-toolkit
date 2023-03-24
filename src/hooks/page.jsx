@@ -1,7 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { useSelector } from 'react-redux'
-
-import { Dashboard, Login, Profile, Product } from '../pages'
 
 export const pageMapper = {
   LOGIN: 'Login',
@@ -21,24 +18,11 @@ const pageContentSlice = createSlice({
 
       if (pageContent) {
         const pageLabel = String(pageContent).toUpperCase()
-        state.pageContent = pageMapper[pageLabel] && pageLabel
+        state.pageContent = pageMapper[pageLabel]
       }
     },
   },
 })
-
-export function getPageComponent() {
-  const { pageContent } = useSelector(state => state.pageReducer)
-
-  if (pageContent) {
-    const pageLabel = String(pageContent).toUpperCase()
-
-    if (pageMapper[pageLabel]) {
-      const Component = eval(pageMapper[pageLabel])
-      return <Component />
-    }
-  }
-}
 
 
 const { actions, reducer } = pageContentSlice
